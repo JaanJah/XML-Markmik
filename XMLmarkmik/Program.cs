@@ -63,10 +63,9 @@ namespace XMLmarkmik
                         {
                             Console.WriteLine("Pealkiri: {0}, Sisu: {1}", märge.Pealkiri, märge.Sisu);
                         }
-                        Console.ReadLine();
                         break;
                     case "3":
-                        File.Delete("märkmik.xml");
+                        File.Delete("märkmed.xml");
                         break;
                     default:
                         break;
