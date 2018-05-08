@@ -52,6 +52,7 @@ namespace XMLmarkmik
                                 serializer2.Serialize(writer, märkmed);
                             }
                         }
+                        Console.WriteLine();
                         break;
                     case "2":
                         var serializer = new XmlSerializer(typeof(List<Märge>));
@@ -63,9 +64,11 @@ namespace XMLmarkmik
                         {
                             Console.WriteLine("Pealkiri: {0}, Sisu: {1}", märge.Pealkiri, märge.Sisu);
                         }
+                        Console.WriteLine();
                         break;
                     case "3":
                         File.Delete("märkmed.xml");
+                        Console.WriteLine();
                         break;
                     default:
                         break;
