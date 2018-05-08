@@ -16,7 +16,7 @@ namespace XMLmarkmik
             while (true)
             {
 
-                Console.WriteLine("Mida soovite teha?\n1.Kirjutada märge.\n2.Lugeda märkmeid.");
+                Console.WriteLine("Mida soovite teha?\n1.Kirjutada märge.\n2.Lugeda märkmeid.\n3.Kustuta kõik");
                 string valik = Console.ReadLine();
                 var märkmed = new List<Märge>();
 
@@ -65,7 +65,11 @@ namespace XMLmarkmik
                         }
                         Console.ReadLine();
                         break;
-
+                    case "3":
+                        File.Delete("märkmik.xml");
+                        break;
+                    default:
+                        break;
                 }
             }
         }
