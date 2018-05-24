@@ -11,6 +11,10 @@ namespace XMLmarkmik
 {
     class Program
     {
+        /// <summary>
+        /// Asks user for his choice and has 3 cases to choose from.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             while (true)
@@ -23,48 +27,12 @@ namespace XMLmarkmik
                 switch (valik)
                 {
                     case "1":
-                        Console.WriteLine("Sisestage märke pealkiri: ");
-                        string pealkiri = Console.ReadLine();
-                        Console.WriteLine("Sisestage märke sisu: ");
-                        string sisu = Console.ReadLine();
-                        if (!File.Exists("märkmed.xml"))
-                        {
-                            var märge = new Märge() { Pealkiri = pealkiri, Sisu = sisu };
-                            märkmed.Add(märge);
-                            var serializer1 = new XmlSerializer(märkmed.GetType());
-                            using (var writer = XmlWriter.Create("märkmed.xml"))
-                            {
-                                serializer1.Serialize(writer, märkmed);
-                            }
-                        }
-                        else
-                        {
-                            var serializer2 = new XmlSerializer(typeof(List<Märge>));
-                            using (var reader = XmlReader.Create("märkmed.xml"))
-                            {
-                                märkmed = (List<Märge>)serializer2.Deserialize(reader);
-                            }
-                            var uusmärge = new Märge() { Pealkiri = pealkiri, Sisu = sisu };
-                            märkmed.Add(uusmärge);
-
-                            using (var writer = XmlWriter.Create("märkmed.xml"))
-                            {
-                                serializer2.Serialize(writer, märkmed);
-                            }
-                        }
-                        Console.WriteLine();
+                        WriteXML writeXML = new WriteXML();
+                        writeXML.Write();
                         break;
                     case "2":
-                        var serializer = new XmlSerializer(typeof(List<Märge>));
-                        using (var reader = XmlReader.Create("märkmed.xml"))
-                        {
-                            märkmed = (List<Märge>)serializer.Deserialize(reader);
-                        }
-                        foreach (var märge in märkmed)
-                        {
-                            Console.WriteLine("Pealkiri: {0}, Sisu: {1}", märge.Pealkiri, märge.Sisu);
-                        }
-                        Console.WriteLine();
+                        ReadXML readXML = new ReadXML();
+                        readXML.Read();
                         break;
                     case "3":
                         File.Delete("märkmed.xml");
