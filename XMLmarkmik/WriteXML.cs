@@ -9,9 +9,16 @@ using System.IO;
 
 namespace XMLmarkmik
 {
+    /// <summary>
+    /// Class that writes the XML.
+    /// </summary>
     class WriteXML
     {
-        
+        /// <summary>
+        /// Asks user for Title and Content for note, if .xml file doesn't exist then XmlSerializer gets note type from Märge.cs and XmlWriter creates the file and adds the note.
+        /// If file already exists then XmlSerializer uses the type of List Märge and XmlReader Deserializes notes from .xml, then adds new note 
+        /// and XmlWriter writes them to xml.
+        /// </summary>
         public void Write()
         {
             var märkmed = new List<Märge>();

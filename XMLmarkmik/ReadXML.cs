@@ -8,8 +8,14 @@ using System.Xml.Serialization;
 
 namespace XMLmarkmik
 {
+    /// <summary>
+    /// Class that Reads notes from the XML.
+    /// </summary>
     class ReadXML
     {
+        /// <summary>
+        /// Uses XmlSerializer to read notes from .xml file and foreach to print them out to user.
+        /// </summary>
         public void Read()
         {
             var märkmed = new List<Märge>();
